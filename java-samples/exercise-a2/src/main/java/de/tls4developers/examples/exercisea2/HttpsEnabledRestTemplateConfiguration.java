@@ -2,7 +2,6 @@ package de.tls4developers.examples.exercisea2;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
-import org.apache.http.conn.ssl.TrustSelfSignedStrategy;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.ssl.SSLContextBuilder;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,9 +12,11 @@ import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
 import javax.net.ssl.SSLContext;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.security.*;
+import java.security.KeyManagementException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
 
 @Configuration
@@ -31,14 +32,8 @@ public class HttpsEnabledRestTemplateConfiguration {
     public RestTemplate restTemplate() throws IOException, CertificateException, NoSuchAlgorithmException,
             KeyStoreException, KeyManagementException, UnrecoverableKeyException {
 
-        KeyStore keyStore = KeyStore.getInstance("pkcs12");
-        keyStore.load(new FileInputStream(keyStoreResource.getFile()), keyStorePassword.toCharArray());
-
         SSLContext sslContext = new SSLContextBuilder()
-                .loadTrustMaterial(
-                        null,
-                        new TrustSelfSignedStrategy())
-                .loadKeyMaterial(keyStore, keyStorePassword.toCharArray())
+                .loadTrustMaterial(keyStoreResource.getFile(), keyStorePassword.toCharArray())
                 .build();
         SSLConnectionSocketFactory sslConnectionSocketFactory = new SSLConnectionSocketFactory(sslContext);
         HttpClient httpClient = HttpClients
