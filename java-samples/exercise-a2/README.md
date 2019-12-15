@@ -115,12 +115,12 @@ message as when you run
 from within your Vagrant box in the third line of the HTML output. So, if 
 everything was set up correctly, your browser should look something like this: 
 
-![query_successful](./documentation/java_sample_a2_query_successful.png)
+![query_successful](https://github.com/AntsInMyEy3sJohnson/TLS4Developers_Workshop/blob/java-sample-a2/java-samples/exercise-a2/documentation/java_sample_a2_query_successful.png)
 
 For comparison, here's what the result would look like had we not explicitly 
 trusted the remote certificate by using the truststore in our `RestTemplate`:
 
-![query_unsuccessful](./documentation/java_sample_a2_query_unsuccessful.png)
+![query_unsuccessful](https://github.com/AntsInMyEy3sJohnson/TLS4Developers_Workshop/blob/java-sample-a2/java-samples/exercise-a2/documentation/java_sample_a2_query_unsuccessful.png)
 
  
 
