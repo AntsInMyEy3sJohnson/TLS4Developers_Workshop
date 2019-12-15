@@ -38,7 +38,7 @@ client and establish secure connections to the HTTPS-enabled backend.
 ### Prerequisites
 The following steps assume you have successfully completed 
 [exercise A2](https://github.com/booboo-at-gluga-de/TLS4Developers_Workshop/tree/master/exercises/A2)
-of this workshop __including the last (third) of the optional steps__, 
+of this workshop __including the last (third) of the optional steps__; 
 that is, you have done the following:
 
 * Created the three files _localhost.key_, _localhost.csr_, and _localhost.crt_
@@ -101,6 +101,11 @@ run the application using the following command (from within the _exercise-a2_
 directory, i. e. on the same directory level where this README is located):
 
 `$ mvn spring-boot:run`
+
+(The command was run using the natively installed Maven here, but if you 
+don't have Maven installed locally and also don't feel inclined to install it, 
+you might just as well make use of the provided Maven wrapper like so: 
+`$ ./mvnw spring-boot:run`)
 
 Once the application has started, open a browser and point it to 
 _http://localhost:8080_ -- this will trigger a small piece of 
