@@ -113,12 +113,12 @@ functionality in the application to attempt a call to
 _https://localhost:12443/index.html_, which will only be successful
 if the truststore has been set up correctly in scope of exercise A2 
 and has been provided to the application's `RestTemplate` 
-(and, of course, the Apache within your Vagrant box has to be listening 
+(and, of course, if the Apache within your Vagrant box is actually listening 
 on that port). The expected behavior is that the browser displays the same 
-message as when you run 
+message in the third line of the HTML output as when you run 
 `$ curl --cacert localhost.crt https://localhost:12443/index.html`
-from within your Vagrant box in the third line of the HTML output. So, if 
-everything was set up correctly, your browser should look something like this: 
+from within your Vagrant box. So, if everything was set up correctly, 
+your browser window should look something like this: 
 
 ![query_successful](https://github.com/AntsInMyEy3sJohnson/TLS4Developers_Workshop/blob/java-sample-a2/java-samples/exercise-a2/documentation/java_sample_a2_query_successful.png)
 
