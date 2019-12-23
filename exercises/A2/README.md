@@ -139,10 +139,10 @@ In this case, we want our program to explicitly trust the HTTPS-enabled Apache w
 
 ### Running the application and verifying expected behavior
 
-You can run the Java sample application using the following command (from within the _/vagrant/exercises/A2_ directory, i. e. on the same level where this ReadMe is located:
+You can run the Java sample application using the following command (from anywhere, basically, as we reference the correct POM file using the `-f` flag):
 
 ```bash
-$ mvn -f java_sample/pom.xml spring-boot:run
+$ mvn -f /vagrant/exercises/A2/java_sample/pom.xml spring-boot:run
 ```
 
 (If you can now observe Maven downloading what feels like approximately half the Internet, don't worry -- that's perfectly normal.)
