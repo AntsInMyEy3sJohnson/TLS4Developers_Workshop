@@ -30,6 +30,7 @@ public class BackendQueryService {
             ResponseEntity<String> responseEntity = restTemplate.getForEntity(BACKEND_URL, String.class);
             return new Result(SUCCESS_HEADER, SUCCESS_SUB_HEADER, responseEntity.getBody());
         } catch (Exception e) {
+            e.printStackTrace();
             return new Result(ERROR_HEADER, ERROR_SUB_HEADER, e.getMessage());
         }
 
