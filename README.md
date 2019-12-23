@@ -20,6 +20,8 @@ You need a machine running Linux (or maybe MacOS) as your playground
    * `vagrant up`
    * `vagrant ssh`
 
+If you are not familiar with Vagrant, you might want to have a look at our short [VAGRANT_HOWTO](VAGRANT_HOWTO.md).
+
 ### Prerequisites without using Vagrant
 
 You need to care for these additional prerequisites yourself:
@@ -104,3 +106,5 @@ That's why you will need to adapt the examples given.
      Certificate Revocation
    * [__Exercise B.4__](exercises/B4/):
      OCSP Stapling
+   * [__Exercise B.5__](exercises/B5/):
+     Expiring Certificates / Monitoring
