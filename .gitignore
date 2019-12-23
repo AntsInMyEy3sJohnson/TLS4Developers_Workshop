@@ -1,7 +1,5 @@
 .vagrant/
 *.swp
-*.p12
-**/src/main/resources/truststore/**
 
 # Stuff added in scope of assembling the Java samples
 HELP.md

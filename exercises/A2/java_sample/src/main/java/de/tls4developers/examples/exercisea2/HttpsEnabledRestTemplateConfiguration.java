@@ -23,17 +23,17 @@ import java.security.cert.CertificateException;
 public class HttpsEnabledRestTemplateConfiguration {
 
     @Value("${http.client.ssl.trust-store}")
-    private Resource keyStoreResource;
+    private Resource trustStoreResource;
 
     @Value("${http.client.ssl.trust-store-password}")
-    private String keyStorePassword;
+    private String trustStorePassword;
 
     @Bean
     public RestTemplate restTemplate() throws IOException, CertificateException, NoSuchAlgorithmException,
             KeyStoreException, KeyManagementException, UnrecoverableKeyException {
 
         SSLContext sslContext = new SSLContextBuilder()
-                .loadTrustMaterial(keyStoreResource.getFile(), keyStorePassword.toCharArray())
+                .loadTrustMaterial(trustStoreResource.getURL(), trustStorePassword.toCharArray())
                 .build();
         SSLConnectionSocketFactory sslConnectionSocketFactory = new SSLConnectionSocketFactory(sslContext);
         HttpClient httpClient = HttpClients
