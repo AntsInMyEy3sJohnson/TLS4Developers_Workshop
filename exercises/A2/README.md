@@ -111,8 +111,8 @@ You will do pretty much the same as in Exercise A.1, but will make sure the CN i
         `openssl pkcs12 -in localhost.keystore.p12 -nodes`
       - If the HTTPS client is e. g. written in Java, you will need to provide it a truststore. A truststore contains every certificate you trust, usually CA certificates only (and no private keys). In our example with the selfsigned certificate you need the localhost certificate itself in the truststore in PKCS12 format. Create it by:  
         `openssl pkcs12 -export -in localhost.crt -nokeys -out localhost.truststore.p12`
-      - For the Java example we'll walk through in just a bit, we're going to need a JKS-type truststore (JKS: _Java Key Store_). To export our newly created self-signed certificate to such a truststore, the following command can be used:  
-      `keytool -import -file localhost.crt -keystore localhost.truststore.jks`  
+      - For the Java example we'll walk through in just a bit, we're going to need a JKS-type truststore (JKS: _Java Key Store_). To import our newly created self-signed certificate into such a truststore, the following command can be used:  
+      `keytool -import -file localhost.crt -trustcacerts -keystore localhost.truststore.jks`  
       This command will ask you for a password to be set on the new truststore. Make sure to remember this password as you'll need it again in the upcoming Java example.
       
 ## Java Example
