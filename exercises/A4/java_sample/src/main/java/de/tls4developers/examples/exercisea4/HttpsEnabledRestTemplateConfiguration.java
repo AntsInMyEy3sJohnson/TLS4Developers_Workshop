@@ -28,12 +28,23 @@ public class HttpsEnabledRestTemplateConfiguration {
     @Value("${http.client.ssl.trust-store-password}")
     private String trustStorePassword;
 
+    @Value("${http.client.ssl.key-store}")
+    private Resource keyStoreResource;
+
+    @Value("${http.client.ssl.key-store-password}")
+    private String keyStorePassword;
+
+    @Value("${http.client.ssl.key-password}")
+    private String keyPassword;
+
     @Bean
     public RestTemplate restTemplate() throws IOException, CertificateException, NoSuchAlgorithmException,
             KeyStoreException, KeyManagementException, UnrecoverableKeyException {
 
         SSLContext sslContext = new SSLContextBuilder()
                 .loadTrustMaterial(trustStoreResource.getURL(), trustStorePassword.toCharArray())
+                .setKeyStoreType("JKS")
+                .loadKeyMaterial(keyStoreResource.getURL(), keyStorePassword.toCharArray(), keyPassword.toCharArray())
                 .build();
         SSLConnectionSocketFactory sslConnectionSocketFactory = new SSLConnectionSocketFactory(sslContext);
         HttpClient httpClient = HttpClients
