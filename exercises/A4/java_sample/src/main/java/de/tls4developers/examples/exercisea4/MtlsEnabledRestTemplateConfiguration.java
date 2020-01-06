@@ -20,7 +20,7 @@ import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
 
 @Configuration
-public class HttpsEnabledRestTemplateConfiguration {
+public class MtlsEnabledRestTemplateConfiguration {
 
     @Value("${http.client.ssl.trust-store}")
     private Resource trustStoreResource;
